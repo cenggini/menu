@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+  <title>CodePen - Pure CSS Off-canvas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Droid+Sans'>
+
+      <style>
+      * {
+  font-family: "Droid Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+html, body, .w, .c {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+/* Checkbox */
+.tb-cb {
+  display: none;
+}
+
+/* Container */
+.c {
+  transition: background 1s ease;
+}
+
+/* Container -> Topbar */
+.c > .tb {
+  background: #175dff;
+  width: 100%;
+  height: 55px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Container -> Topbar Menu */
+.c > .m {
+  background: white;
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: width 0.5s ease 0.5s, height 0.5s ease;
+}
+
+/* Container -> Topbar Menu -> Top */
+.c > .m > .t {
+  background: #282fed;
+  width: 55px;
+  height: 55px;
+  position: relative;
+  transition: width 0.5s ease 0.5s, height 0.5s ease;
+}
+
+/* Container -> Topbar Menu -> Top -> Box */
+.c > .m > .t > .b {
+  background: #175dff;
+  width: 55px;
+  height: 55px;
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c > .m > .t > .b > span {
+  background: white;
+  width: 30px;
+  height: 5px;
+  position: absolute;
+  left: calc(50% - 15px);
+  display: block;
+}
+
+.c > .m > .t > .b > span:nth-child(1) {
+  top: 15px;
+}
+
+.c > .m > .t > .b > span:nth-child(2) {
+  top: 25px;
+}
+
+.c > .m > .t > .b > span:nth-child(3) {
+  bottom: 15px;
+}
+
+/* Container -> Topbar Menu -> Top -> Text */
+.c > .m > .t > .t {
+  font-size: 30px;
+  color: white;
+  width: 230px;
+  height: 55px;
+  line-height: 55px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 70px;
+}
+
+/* Container -> Topbar Menu -> Link */
+.c > .m > .l {
+  height: 100%;
+}
+
+/* Container -> Topbar Menu -> Link -> ul */
+.c > .m > .l > ul {
+  padding: 20px 0;
+}
+
+/* Container -> Topbar Menu -> Link -> Links */
+.c > .m > .l > ul > li > a {
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  margin: 0 20px;
+  display: block;
+}
+
+.c > .m > .l > ul > li > a:hover,
+.c > .m > .l > ul > li > a:active {
+  background: #2f2f2f;
+  color: white;
+}
+
+/********************************/
+/*     CHECKBOX OPEN OPTION     */
+/********************************/
+
+/* Container */
+#tb-cb:checked ~ .c {
+  background: rgba(31, 31, 31, 0.25);
+}
+
+/* Container -> Topbar Menu */
+#tb-cb:checked ~ .c > .m {
+  background: white;
+  width: 300px;
+  height: 100%;
+  transition: width 0.5s ease, height 0.5s ease 0.5s;
+}
+
+/* Container -> Topbar Menu -> Top */
+#tb-cb:checked ~ .c > .m > .t {
+  width: 300px;
+  transition: width 0.5s ease, height 0.5s ease 0.5s;
+}
+
+/* Description */
+.d {
+  height: calc(100% - 100px);
+  overflow: auto;
+  margin-top: 55px;
+  padding: 45px 40px 0;
+}
+
+.d > h1,
+.d > p {
+  margin-bottom: 20px;
+}
+    </style>
+
+  
+  
+  
+  
+
+</head>
+
+<body translate="no" >
+
+  <div class="w">
+  <input type="checkbox" id="tb-cb" class="tb-cb" />
+  <div class="c">
+    <div class="tb"></div>
+    <div class="m">
+      <div class="t">
+        <label for="tb-cb" class="b">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <span class="t">Menu</span>
+      </div>
+      <div class="l">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+          <li>
+            <a href="#">Blog</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="d">
+      <h1>Ini adalah demo </h1>
+      <p>ini adalah contoh simpel dari cara untuk pembuatan menu yang menggunakan css dan html tidak memerluankan javasript kara saya yakin jika menggunakan javascript akan memperberat loading halaman anda makan dari itu saya hadirkan yang lebih ringan dan simpel</p>
+      <p>Menu ini di buat untuk para blogger yang menggunakan versi amp yang di buat sengaja tanpa melibatkan javascript hanya mengandalkan css dan html kalian bisa mencotohkan cara pembuatanya karna dari disain sengaja di buat agar kalian sedikit memahami componen css yang mudah untuk di mengerti</p>
+      <p>Menu ini sedikit mengadalkan versi canvas yang akan menghasilkan efek yang menawan sehingga ini tidak kalah dengan efek yang di hasilkan oleh javascript dan boostrap karna untuk tahun 2018 ini sudah saatnya kita memiliki cara yang tepat untuk mengandalkan AMP untuk sebuah halaman yang rata rata pengunjung menggunakan versi mobile agar mereka tetap merasa senang </p>
+    </div>
+  </div>
+</div>
+  
+  
+  
+
+    <script >
+      // No Javascript
+    </script>
+
+
+
+  
+  
+
+</body>
+
+</html>
+ 
